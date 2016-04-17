@@ -1,1 +1,11 @@
-ENTRIES
+<div ng-controller="entryCtl" id="entry-container" class="container-fluid">
+    <h3 id="PageHeader">{{ PageHeader}}</h3>
+
+     <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
+     
+	<div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination class="grid"></div>
+	<!-- <br/>
+	<div class="align-bottom">
+		<button id="btnDeleteEntry" class="btn btn-primary" ng-disabled="!hasSelectedEntries()" ng-click="deleteEntry()">Delete</button>
+	</div> -->
+</div>
