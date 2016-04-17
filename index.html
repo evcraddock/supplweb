@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="supplweb">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/"/>
+    <title>Supple Ments</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="stylesheet" href="resources/css/app.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+  </head>
+  <body>
+    <div ng-include="'app/components/navbar/navbar.html'"></div>
+    
+    <div class="container">
+      <div ui-view=""></div>
+    </div> 
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/components/navbar/navbarController.js"></script>
+    
+  </body>
+
+</html>
