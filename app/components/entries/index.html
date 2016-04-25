@@ -1,7 +1,7 @@
 <div ng-controller="entryCtl" id="entry-container" class="container-fluid">
     <h3 id="PageHeader">{{ PageHeader}}</h3>
 
-     <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
+    <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
      
 	<div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination class="grid"></div>
 	<!-- <br/>

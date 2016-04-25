@@ -1,0 +1,59 @@
+<div ng-controller="addEntryCtl" >
+  <div class="modal-header">
+    <h3 id="PageHeader" class="modal-title">{{ PageHeader}}</h3>
+  </div>
+  <div>
+    <form name="entryForm" novalidate ng-submit="addEntry()">
+      <div class="input-group-btn" dropdown>
+        <button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" ng-click="toggleDropdown($event)" dropdown-toggle> 
+          Quick Add items <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li ng-repeat="item in quickAddEntries"><a href ng-click="toggleQuickAdd(item)">{{item.amount}}{{item.measurementType}} {{item.supplement}}</a></li>
+        </ul>
+
+      </div>
+      </hr>
+        <br/>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
+
+          <label>Supplement</label>
+          <div class="input-group">
+            <input type="text" name="supplement" class="form-control" ng-model="newEntry.supplement" required>
+            <p ng-show="entryForm.supplement.$invalid && !entryForm.supplement.$pristine" class="help-block">Supplement is required</p>
+          </div>
+
+          <div class="form-group input-group col-sm-4">
+            <label>Amount</label>
+             <input type="amount" name="amount" class="form-control" ng-model="newEntry.amount" required>
+             <p ng-show="entryForm.amount.$invalid && !entryForm.amount.$pristine" class="help-block">Ammount is required</p>
+          </div>
+
+          <label>Measurement</label>
+          <div class="input-group col-sm-4">
+            <div class="input-group-btn" dropdown>
+              <button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" ng-click="toggleDropdown($event)" dropdown-toggle> 
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                  <li ng-repeat="item in measurementTypes"><a href ng-click="toggleMeasurementType(item)">{{item}}</a></li>
+              </ul>
+            </div>
+            <input type="text" name="measurementType" class="form-control" ng-model="newEntry.measurementType" required>
+                <p ng-show="entryForm.measurementType.$invalid && !entryForm.measurementType.$pristine" class="help-block">Measurement is required</p>
+          </div>
+
+          <div>
+            <br/>
+            <button class="btn btn-success" ng-disabled="entryForm.$invalid" type="submit">Save</button>
+            <input type="button" class="btn btn-cancel" ng-click="cancel()" value="Cancel"/>
+          </div>
+        </div>
+    </div>
+    
+  </form>
+  
+  </div>
+</div>

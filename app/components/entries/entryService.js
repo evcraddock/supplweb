@@ -12,6 +12,19 @@ angular.module('supplweb')
 				}
 
 				return $http(req);
+			},
+			addEntry: function(entry) {
+				var data = JSON.stringify({
+						supplement: entry.supplement,
+						amount: parseFloat(entry.amount.toString()),
+						measurementType: entry.measurementType
+					});
+				
+				$http.post("http://localhost:8080/api/entries", data)
+				.success(function (data, status) {
+					
+				})
+
 			}
 		}
 	}

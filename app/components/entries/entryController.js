@@ -1,6 +1,6 @@
 angular.module('supplweb')
 .controller('entryCtl',
-    function (entryService, $filter, $scope) {
+    function (entryService, uiGridConstants, $filter, $scope) {
     	
     	$scope.PageHeader = 'Supplement Entries';
 
@@ -9,7 +9,7 @@ angular.module('supplweb')
         }
 
         $scope.gridOptions = {
-            enableRowSelection: true,
+            enableRowSelection: false,
             multiSelect: false,
             enableSelectAll: false,
             selectionRowHeaderWidth: 35,
@@ -21,7 +21,7 @@ angular.module('supplweb')
             enableFiltering: false,
             rowHeight: 35,
             isRowSelectable: function(row){
-                return row.entity.provisioned;
+                return false;
             }
           };
 
@@ -30,7 +30,7 @@ angular.module('supplweb')
         }
 
         $scope.gridOptions.columnDefs = [
-            { field: 'supplement', displayName: 'Supplement' },
+            { field: 'supplement', displayName: 'Supplement'},
             { field: 'amount', displayName: 'Measurement', cellTemplate: '<div class="ui-grid-cell-contents">{{row.entity.amount}} {{row.entity.measurementType}}</div>' },
             { field: 'dateTaken', displayName: 'Date', type: 'date', cellFilter: 'date:\'MM/dd/yyyy\'' }
         ];
@@ -39,7 +39,7 @@ angular.module('supplweb')
            entryService.getEntries()
            .then(function(results) {
                 var entries = results.data;
-                $scope.entries = entries;
+                $scope.entries = entries.reverse();
                 $scope.gridOptions.data = entries;
                 $scope.gridOptions.enablePaginationControls = $scope.entries.length > 10;
                 $scope.gridOptions.totalItems = entries.length;

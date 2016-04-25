@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('supplweb', ['ui.router', 'ui.bootstrap', 'ui.grid', 'ui.grid.selection', 'ui.grid.pagination'])
+angular.module('supplweb', ['ui.router', 'ui.bootstrap', 'ui.grid', 'ui.grid.selection', 'ui.grid.pagination', 'ngAnimate'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 	$urlRouterProvider.otherwise('/');
@@ -8,6 +8,11 @@ angular.module('supplweb', ['ui.router', 'ui.bootstrap', 'ui.grid', 'ui.grid.sel
 	$stateProvider.state('entries', {
 		url: '/',
 		templateUrl: 'app/components/entries/index.html'
+	});
+
+	$stateProvider.state('addentry', {
+		url: '/entry/add',
+		templateUrl: 'app/components/entries/addEntry.html'
 	});
 
 });
