@@ -51,5 +51,14 @@ describe('Given a user with access', function(){
 		it('the Page header should have a value', function(){
 			expect(scope.PageHeader).to.equal('Supplement Entries');
 		});
+
+		describe('When the save button is clicked', function() {
+			it('then an entry is added', function() {
+				expect(entryService).to.exist;
+				var addEntry = sinon.spy(entryService, "addEntry");
+				scope.addEntry();
+				expect(addEntry.calledOnce).to.equal(true);
+			});
+		});
 	});
 });

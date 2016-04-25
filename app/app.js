@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('supplweb', ['ui.router', 'ui.bootstrap', 'ui.grid', 'ui.grid.selection', 'ui.grid.pagination', 'ngAnimate'])
+angular.module('supplweb', ['ui.router', 'ui.bootstrap', 'ui.grid', 'ui.grid.selection', 'ui.grid.pagination'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 	$urlRouterProvider.otherwise('/');

@@ -49,6 +49,66 @@ angular.module('supplweb')
            });
         };
 
+        $scope.newEntry = {
+                supplement: '',
+                amount: 0,
+                measurementType: ''
+            };
+
+        
+
+        $scope.addEntry = function() {
+            entryService.addEntry($scope.newEntry);
+            $scope.getEntries();
+            window.location.reload();
+        }
+
+        $scope.clear = function() {
+            $scope.newEntry = {
+                supplement: '',
+                amount: 0,
+                measurementType: ''
+            };
+        }
+
+        $scope.quickAddEntries = [
+            {
+                supplement: '100% Chelated Magnesium',
+                amount: 200,
+                measurementType: 'mg'
+            },
+            {
+                supplement: 'Potassium Citrate',
+                amount: 99,
+                measurementType: 'mg'
+            },
+            {
+                supplement: 'Mens Health Multivitamin',
+                amount: 1,
+                measurementType: 'capsule'
+            },
+            {
+                supplement: 'KetoOs',
+                amount: 22.3,
+                measurementType: 'g'
+            } 
+        ];
+
+        $scope.measurementTypes = ["g", "mg", "capsule"];
+
+        $scope.toggleMeasurementType = function(measurementType) {
+            $scope.newEntry.measurementType = measurementType;
+        }
+
+        $scope.toggleQuickAdd = function(entry) {
+            $scope.newEntry = entry;
+        }
+
+        $scope.toggleDropdown = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+        };
+
         angular.element(document).ready(function () {
             $scope.getEntries();
         });
