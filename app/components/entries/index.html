@@ -10,7 +10,7 @@
 		          Saved Entries <span class="caret"></span>
 		        </button>
 		        <ul class="dropdown-menu" dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-		            <li ng-repeat="item in quickAddEntries"><a href ng-click="toggleQuickAdd(item)">{{item.amount}} {{itemeasurementType}} {{item.supplement}}</a></li>
+		            <li ng-repeat="item in quickAddEntries"><a href ng-click="toggleQuickAdd(item)">{{item.supplement}} - {{item.amount}} {{item.measurementType}} </a></li>
 		        </ul>
 	      	</div>
 
@@ -38,7 +38,7 @@
 	            	<p ng-show="entryForm.measurementType.$invalid && !entryForm.measurementType.$pristine" class="help-block">Measurement is required</p>
 	          	</div>
 	      	</div>
-	      	
+
 	        <div class="col-sm-2"> 
 	            <button class="btn btn-success" ng-disabled="entryForm.$invalid" type="submit">Save</button>
 	            <input type="button" class="btn btn-cancel" ng-click="clear()" value="Clear"/>
